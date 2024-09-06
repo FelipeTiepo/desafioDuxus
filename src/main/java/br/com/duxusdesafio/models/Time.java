@@ -1,4 +1,4 @@
-package br.com.duxusdesafio.model;
+package br.com.duxusdesafio.models;
 
 import javax.persistence.*;
 import java.time.LocalDate;

@@ -1,8 +1,8 @@
-package br.com.duxusdesafio.service;
+package br.com.duxusdesafio.services;
 
-import br.com.duxusdesafio.model.ComposicaoTime;
-import br.com.duxusdesafio.model.Integrante;
-import br.com.duxusdesafio.model.Time;
+import br.com.duxusdesafio.models.ComposicaoTime;
+import br.com.duxusdesafio.models.Integrante;
+import br.com.duxusdesafio.models.Time;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
