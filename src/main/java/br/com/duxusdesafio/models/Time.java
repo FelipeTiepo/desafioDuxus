@@ -1,5 +1,7 @@
 package br.com.duxusdesafio.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -14,6 +16,7 @@ public class Time {
 	private long id;
 
 	@Column
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate data;
 	
 	@OneToMany(mappedBy = "time", cascade = CascadeType.ALL)

@@ -42,9 +42,9 @@ public class IntegranteDTO {
         nome = entity.getNome();
         funcao = entity.getFuncao();
 
-        for(Time time : entity.getTimes()){
-            times.add(time);
-        }
+//        for(Time time : entity.getTimes()){
+//            times.add(time);
+//        }
     }
 
 }

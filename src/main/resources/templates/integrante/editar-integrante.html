@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<h1>Editar</h1>
+<div layout:fragment="conteudo">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Alteração de Integrante</h2>
+                <div class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <span th:text="${mensagem}"></span>
+                </div>
+
+                <form action="#" th:action="@{/integrantes/{id}(id=${integranteDTO.id})}" th:object="${integranteDTO}" method="post">
+                    <input type="hidden" name="_method" value="put">
+                    <!--Franquia-->
+                    <div class="row mb-3">
+                        <label for="franquia" class="col-sm-1 col-form-label">Franquia:</label>
+                        <div class="col-sm-5">
+                            <input id="franquia" class="form-control" type="text" th:field="*{franquia}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('franquia')}" th:errors="*{franquia}"></span>
+                        </div>
+                    </div>
+                    <!--Nome-->
+                    <div class="row mb-3">
+                        <label for="nome" class="col-sm-1 col-form-label">Nome:</label>
+                        <div class="col-sm-5">
+                            <input id="nome" class="form-control" type="text" th:field="*{nome}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+                        </div>
+                    </div>
+                    <!--Funcao-->
+                    <div class="row mb-3">
+                        <label for="funcao" class="col-sm-1 col-form-label">funcao:</label>
+                        <div class="col-sm-3">
+                            <input id="funcao" class="form-control" type="text" th:field="*{funcao}">
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('funcao')}" th:errors="*{funcao}"></span>
+                        </div>
+                    </div>
+                    <!--adicionando e populando ComboBox Time-->
+                    <div class="form-row">
+                        <div class="row mb-3">
+                            <label  class="col-sm-1 col-form-label">Time:</label>
+                            <div class="col-sm-3">
+                                <select th:field="*{time}" id="time" name="time"
+                                        class="chosen-select form-control"  data-placehold="time">
+                                    <option th:each="time : ${times}"
+                                            th:value="${time.id}"
+                                            th:text="${time.data}">
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5">
+								<span class="mensagem" th:errors="*{time}"
+                                      th:if="${#fields.hasErrors('time')}"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--adicionando e populando ComboBox ComposicaoTime-->
+                    <div class="form-row">
+                        <div class="row mb-3">
+                            <label class="col-sm-1 col-form-label">Composição Time:</label>
+                            <div class="col-sm-3">
+                                <select class="chosen-select form-control" data-placehold="composicaoTimes" id="composicaoTimes" multiple="true"
+                                        name="composicaoTimes" th:field="${integranteDTO.composicaoTimes}">
+                                    <option th:each="composicaoTime :${composicaoTimes}"
+                                            th:text="${composicaoTime.nome}"
+                                            th:value="${composicaoTime.id}"/>
+                                </select>
+                            </div>
+                            <div class="col-sm-5">
+								<span class="mensagem" th:errors="*{composicaoTimes}"
+                                      th:if="${#fields.hasErrors('composicaoTimes')}"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row mb-3">
+                        <label for="valor" class="col-sm-1 col-form-label">Valor:</label>
+                        <div class="col-sm-2">
+                            <input id="valor" class="form-control" type="text" th:field="*{valor}">
+                        </div>
+                        <div class="col-sm-5">
+								<span class="mensagem" th:if="${#fields.hasErrors('valor')}"
+                                      th:errors="*{valor}"></span>
+                        </div>
+                    </div>
+
+                    <input class="btn btn-primary" type="submit" value="Alterar" />
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
