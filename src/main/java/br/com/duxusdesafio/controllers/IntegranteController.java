@@ -3,8 +3,6 @@ package br.com.duxusdesafio.controllers;
 import br.com.duxusdesafio.dto.ComposicaoTimeDTO;
 import br.com.duxusdesafio.dto.IntegranteDTO;
 import br.com.duxusdesafio.dto.TimeDTO;
-import br.com.duxusdesafio.models.ComposicaoTime;
-import br.com.duxusdesafio.models.Time;
 import br.com.duxusdesafio.services.ComposicaoTimeService;
 import br.com.duxusdesafio.services.IntegranteService;
 import br.com.duxusdesafio.services.TimeService;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
 import java.util.List;
 
 @Controller

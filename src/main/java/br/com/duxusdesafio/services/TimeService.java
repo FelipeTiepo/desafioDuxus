@@ -45,7 +45,7 @@ public class TimeService {
     public TimeDTO update(Long id, TimeDTO dto) {
 
         try {
-            Time entity = timeRepository.getReferenceById(id);
+            Time entity = timeRepository.getById(id);
             //copyDtoToEntity(dto, entity);
             entity = timeRepository.save(entity);
             return new TimeDTO(entity);
@@ -67,7 +67,9 @@ public class TimeService {
         }
     }
 
-    //private void copyDtoToEntity(TimeDTO dto, Time entity) {entity.setNome(dto.getNome());}
+    private void copyDtoToEntity(TimeDTO dto, Time entity) {
+        entity.setData(dto.getData());
+    }
 
 
 }

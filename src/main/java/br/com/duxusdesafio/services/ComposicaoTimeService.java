@@ -42,7 +42,7 @@ public class ComposicaoTimeService {
     @Transactional
     public ComposicaoTimeDTO update(Long id, ComposicaoTimeDTO dto){
         try{
-            ComposicaoTime composicaoTime = composicaoTimeRepository.getReferenceById(id);
+            ComposicaoTime composicaoTime = composicaoTimeRepository.getById(id);
             copyDtoToEntity(dto, composicaoTime);
             composicaoTime = composicaoTimeRepository.save(composicaoTime);
             return new ComposicaoTimeDTO(composicaoTime);
